@@ -1,6 +1,9 @@
+# Info
+Forked from https://github.com/panubo/docker-sshd
+
 # SSHD
 
-Minimal Alpine Linux Docker image with `sshd` exposed and `rsync` installed.
+Minimal Ubuntu Linux Docker image with `sshd` exposed and `rsync` installed.
 
 ## Environment Options
 

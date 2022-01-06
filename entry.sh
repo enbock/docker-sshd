@@ -74,7 +74,7 @@ if [ -w /etc/authorized_keys ]; then
     chown root:root /etc/authorized_keys
     chmod 755 /etc/authorized_keys
     # test for writability before attempting chmod
-    for f in $(find /etc/authorized_keys/ -type f -maxdepth 1); do
+    for f in $(find /etc/authorized_keys/ -maxdepth 1 -type f); do
         [ -w "${f}" ] && chmod 644 "${f}"
     done
 fi
@@ -113,6 +113,7 @@ fi
 if [[ "${SSH_ENABLE_ROOT}" == "true" ]]; then
     echo ">> Unlocking root account"
     usermod -p '' root
+    echo "root:root" | chpasswd
 else
     echo "INFO: root account is now locked by default. Set SSH_ENABLE_ROOT to unlock the account."
 fi
